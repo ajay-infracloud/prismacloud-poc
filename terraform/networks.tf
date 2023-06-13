@@ -10,6 +10,9 @@ resource "google_compute_subnetwork" "public-subnetwork" {
   region        = var.region
   network       = google_compute_network.vpc.id
 
+  private_ip_google_access = true
+  private_ipv6_google_access = true
+  
   secondary_ip_range {
     range_name    = "tf-test-secondary-range-update1"
     ip_cidr_range = "192.168.10.0/24"
